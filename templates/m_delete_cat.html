@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>{{man_name}}'s Dashboard </h1>
+        <h2  align="right" ><a href="/product_and_categorywise_summary">Summary</a> |<a href="/logout">Logout</a><h2>
+        <br> 
+        <hr size="5" color="black">
+    </div>
+    <div>
+        <center>
+        <h2>Delete Category</h2>
+        <form action="{{ url_for('delete_category', man_id=man_id) }}" method="post">
+
+            <label for="cat_id">Choose Category :</label>
+            <select name="cat_id" id="cat_id" required>
+                {% for i in category_id_list %}
+                <option value="{{i.cat_id}}">{{i.cat_name}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+            <br>
+            <input type="submit" value="Delete Permanently">
+            
+        </form>
+        </center>
+    </div>
+    
+</body>
+</html>

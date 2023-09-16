@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Cart</title>
+
+</head>
+<body>
+    <!-- navbar -->
+    <div>
+        <h1>{{user_name}}'s Dashboard </h1>
+        <h2 align="right"><a href="{{ url_for('user_cart', user_id=user_id) }}">Cart  </a> | <a href="/">Logout </a><h2>
+        <br> 
+        <hr size="5" color="black">
+    </div>
+    <!-- details -->
+    <div>
+     
+            <table border="1px" cellpadding="10">
+                <tr>
+                    <th>Order Index</th>
+                    <th>Category ID</th>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Rate</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+
+                {% for order in user_orders %}
+                <tr>
+                    <td>{{ order.index }}</td>
+                    <td>{{ order.category_id }}</td>
+                    <td>{{ order.product_id }}</td> 
+                    <td>{{ order.product_name }}</td> 
+                    <td>{{ order.rate }}</td> 
+                    <td>{{ order.quantity }}</td>
+                    <td> &#8377 {{ order.price }}</td>
+                </tr>
+                
+                {% endfor %}
+                <tr>
+                    <th colspan="6">Grand Total</th>
+                    <td> &#8377 {{ grand_total}}</td>
+                </tr>
+
+            </table>
+             
+            <br>
+            <br>
+            <button>
+                <a href="{{ url_for('thanks',user_id=user_id,grand_total=grand_total) }}"> Place Order</a>
+            </button>
+    </div>
+</body>
+</html>

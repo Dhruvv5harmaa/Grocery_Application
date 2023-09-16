@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Product Page</title>
+</head>
+<body>
+    <!-- navbar -->
+    <div>
+        <h1>{User's} Dashboard </h1>
+        <h2  align="right" ><a href="">Profile</a> | <a href="">Cart</a> |<a href="">Logout</a><h2>
+        <br> 
+        <hr size="5" color="black">
+    </div>
+    <!-- details -->
+    <div>
+        <h2> {Product Name} - {Category Name}</h2>
+        <form action="/" method="post">
+            <center>
+            <label for="available">Availability : In Stock</label><br>
+            <br>
+            <label for="quantity">Quantity</label><input type="number"  id="quantity" name="quantity">{Unit from table}<br>
+            <br>
+            <label for="price">Price</label><input type="number"  id="price" name="price"><br>
+            <br>
+            <label for="total">Total</label><input type="number"  id="total" name="total"><br>
+            <br>
+            <input type="submit" value="Buy Now">
+            <input type="submit" value="Add to Cart">
+            <input type="submit" value="Go to Cart">
+            </center>
+        </form>
+    <div>
+</body>
+</html>

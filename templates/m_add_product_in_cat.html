@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- navbar -->
+     <div>
+        <h1>{{man_name}}'s Dashboard </h1>
+        <h2  align="right" ><a href="/product_and_categorywise_summary">Summary</a> |<a href="/logout">Logout</a><h2>
+        <br> 
+        <hr size="5" color="black">
+    </div>
+    <!-- details -->
+    <div>
+        <center>
+        <h2>Add new Product </h2>
+        
+        <form action="{{ url_for('add_product_category',man_id=man_id) }}" method="post">
+
+        <label for="cat_id">Choose Category :</label>
+        <select name="cat_id" id="cat_id" required>
+            {% for i in category_id_list %}
+            <option value="{{i.cat_id}}">{{i.cat_name}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label for="p_name">Product Name : </label><input type="text"  id="p_name" name="p_name" required><br>
+        <br>
+        <label for="rate" style="margin-left:65px" >Rate : </label><input type="number" step="0.01" id="rate" name="rate" required>
+        <label for="unit" ></label>
+        <select name="unit" id="unit" required>
+            {% for i in uom_list %}
+            <option value="{{i.uom_name}}">{{i.uom_name}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label for="quantity"  style="margin-left:40px">Quantity : </label><input type="number"  id="quantity" name="quantity" required><br>
+        <br>
+        <br>
+        <label for="expiry">Expiry Date : </label><input type="text"  id="expiry" name="expiry" pattern="\d{2}-\d{4}" placeholder="MM-YYYY format"><br>
+        <br>
+        <br>
+        <input type="submit" value="Save">
+        </center>
+    </form>
+    </div>
+</body>
+</html>

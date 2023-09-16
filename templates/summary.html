@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graph</title>
+</head>
+<body>
+    <center>
+    <img src="data:image/png;base64,{{ graph }}" alt="Product Quantity Graph">
+    <br>
+    
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Product Name</td>
+        </tr>
+        {% for i in products %}  
+        <tr>
+            <td> {{i.product_id}}</td>
+            <td> {{i.product_name}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </center>
+  
+  
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <div>
+    <h1>{{user_name}}'s Dashboard </h1>
+    <h2 align="right"><a href="{{ url_for('user_cart', user_id=user_id) }}">Cart  </a> | <a href="/">Logout </a><h2>
+    <br> 
+    <hr size="5" color="black">
+    </div>
+    <div>
+    <center>
+    <h1>Search Results</h1>
+
+    {% if products %}
+        
+            {% for product in products %}
+                {{ product.product_name }} - {{ product.rate }}
+               <button>
+                <a href="{{ url_for('add_to_cart', user_id=user_id, product_id=product.product_id) }}">Buy</a>
+               </button> 
+               <br>
+               <br>
+            {% endfor %}
+        
+    {% else %}
+        <p>No products found.</p>
+    {% endif %}
+
+    <button>
+        <a href="{{url_for('user_dashboard',user_id=user_id)}}">Back to all products</a>
+    </button> 
+</center>
+    </div>
+</body>
+</html>

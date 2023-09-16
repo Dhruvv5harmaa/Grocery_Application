@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>{{man_name}}'s Dashboard </h1>
+        <h2  align="right" ><a href="">Summary</a> |<a href="">Logout</a><h2>
+        <br> 
+        <hr size="5" color="black">
+    </div>
+    <div>
+        <center>
+        <h2>Edit Product Details </h2>
+
+        <form action="{{ url_for('edit_product', man_id=man_id ,product_id=product.product_id) }}" method="post">
+            <label for="new_name">New Name:</label>
+            <input type="text" name="new_name" value="{{ product.product_name }}" >
+            
+            
+            <label for="new_rate">New Rate:</label>
+            <input type="number" name="new_rate" step="0.01" value="{{ product.rate }}">
+            
+            <label for="new_quantitiy">Update Quantity:</label>
+            <input type="number" name="new_quantitiy" id="new_quantitiy" value="{{ product.quantity }}">
+            <br>
+            <br>
+            <button type="submit">Save Changes</button>
+            <button> <a href="{{ url_for('remove_product', man_id=man_id ,product_id=product.product_id) }}   "> Remove Product </a></button>
+        </form>
+
+       
+        </center>
+</body>
+</html>

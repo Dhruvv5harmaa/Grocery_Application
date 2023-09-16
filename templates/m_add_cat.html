@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>{{man_name}}'s Dashboard </h1>
+        <h2  align="right" ><a href="/product_and_categorywise_summary">Summary</a> |<a href="/logout">Logout</a><h2>
+        <br> 
+        <hr size="5" color="black">
+    </div>
+    <div>
+        <center>
+        <h2>Creating New Category</h2>
+     
+        <form action="{{ url_for('add_category',man_id=man_id) }}" method="post">
+        <label for="cat_name"></label>
+        <input type="text" name="cat_name" id="cat_name" required minlength="2">
+        <br>
+        <br>
+        <input type="submit" value="Save">
+        </form>
+        </center>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- navbar -->
+     <div>
+        <h1>{{user_name}}'s Dashboard </h1>
+        <h2 align="right"><a href="{{ url_for('user_cart', user_id=user_id) }}">Cart  </a> | <a href="/">Logout </a><h2>
+        <br> 
+        <hr size="5" color="black">
+    </div>
+    <div>
+    <center>
+        <h2>Product Buying Info</h2>
+        <table cellpadding="10">
+            <tr>
+                <td>Product_Name </td>
+                <td> {{product_name}}</td>
+            </tr>
+            <tr>
+                <td>Product_Category</td>
+                <td>{{category}}</td>
+            </tr>
+            <tr>
+                <td>Quantitiy In Stock </td>
+                <td>{{quan}}</td>
+            </tr>
+            <tr>
+                <td>Rate  </td>
+                <td> {{rate}}</td>
+            </tr>
+            <tr>
+                <td>Product_Expiry</td>
+                <td> {{expiry}}</td>
+            </tr>
+        </table>
+       <br>
+        <form action="{{ url_for('add_to_cart',user_id=user_id,product_id=product_id) }}" method="post">
+            <label for="buy_quantity">Quanitity</label>
+            <input type="number" id="buy_quantity" name="buy_quantity" min="1" max="{{quan}}" required>
+            <br>
+            <br>
+            <input type="submit" value="Add to cart">
+        </form>
+
+    </center>
+    </div>
+    
+</body>
+</html>

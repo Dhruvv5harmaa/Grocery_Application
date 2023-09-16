@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- navbar -->
+    <div>
+        <h1>{{user_name}}'s Dashboard </h1>
+        <h2 align="right"><a href="{{ url_for('user_cart', user_id=user_id) }}">Cart  </a> | <a href="/">Logout </a><h2>
+        <br> 
+        <hr size="5" color="black">
+    </div>
+    <div>  
+        <center>
+        <form action="{{ url_for('search_products', user_id=user_id)}}" method="GET">
+            <label for="search">Search Product:</label>
+            <input type="text" name="q" id="search" placeholder="Enter product name">
+
+            <button type="submit">Search</button>
+        </form>
+        <br>
+        <form action="{{ url_for('search_products_by_category', user_id=user_id)}}" method="GET">
+            <label for="category">Filter by Category:</label>
+            <input type="text" name="category_name" id="category" placeholder="Enter category name">
+    
+            <button type="submit">Search</button>
+        </form>
+        </center>
+    </div>
+    <div> 
+       {% for category, products in products_by_category.items() %}
+        <h2>{{ category }}</h2>
+        <ul>
+            {% for product in products %}
+
+                <li>
+                    {{ product.product_name }}  :  &#8377 {{ product.rate }}    {{product.uom_name}} 
+                  <button><a href="{{ url_for('add_to_cart', user_id=user_id, product_id=product.product_id) }}">Buy</a></button> 
+                </li>
+                <br>
+            {% endfor %}
+        </ul>
+        <hr style='border-top: dotted 1px;' /> 
+    {% endfor %}
+
+       
+    
+    </div>
+</body>
+</html>
